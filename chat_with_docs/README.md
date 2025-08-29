@@ -54,7 +54,6 @@ OPENAI_API_KEY=your_openai_api_key_here
 
 启动 Streamlit 应用：
 ```bash
-streamlit run main.py
 python3 -m streamlit run main.py
 ```
 
