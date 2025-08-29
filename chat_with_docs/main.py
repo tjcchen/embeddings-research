@@ -72,17 +72,18 @@ class ChatWithDocsApp:
             # Language selection
             language = st.selectbox("选择语言 / Select Language", ["chinese", "english"])
             
-            # Question input
-            question = st.text_input("请输入您的问题：", key="question_input")
-            
-            # Ask button
-            if st.button("提问", type="primary") or (question and st.session_state.get('enter_pressed')):
-                if question and st.session_state.vector_store_ready:
-                    self.handle_question(question, language)
-                elif not st.session_state.vector_store_ready:
-                    st.error("请先上传并处理文档！")
-                else:
-                    st.warning("请输入问题！")
+            # Question input form
+            with st.form("question_form", clear_on_submit=True):
+                question = st.text_input("请输入您的问题：")
+                submit_button = st.form_submit_button("提问", type="primary")
+                
+                if submit_button:
+                    if question and st.session_state.vector_store_ready:
+                        self.handle_question(question, language)
+                    elif not st.session_state.vector_store_ready:
+                        st.error("请先上传并处理文档！")
+                    else:
+                        st.warning("请输入问题！")
             
             # Display chat history
             self.display_chat_history()
@@ -164,8 +165,8 @@ class ChatWithDocsApp:
                 }
                 st.session_state.chat_history.append(chat_entry)
                 
-                # Clear input
-                st.session_state.question_input = ""
+                # Note: Cannot clear input field due to Streamlit widget limitations
+                # The input will be cleared on next rerun
                 
             except Exception as e:
                 st.error(f"回答问题时出错：{str(e)}")

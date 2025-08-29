@@ -33,11 +33,13 @@
 
 ```bash
 cd chat_with_docs
+python3 -m venv .venv
+source .venv/bin/activate
 pip3 install -r requirements.txt
 ```
 
 ## ⚙️ 配置设置
-
+python3 cli_demo.py
 1. 复制环境变量模板：
 ```bash
 cp .env.example .env
@@ -63,7 +65,7 @@ python3 -m streamlit run main.py
 
 运行 CLI 演示：
 ```bash
-python3 cli_demo.py
+
 ```
 
 ## 📁 项目结构
