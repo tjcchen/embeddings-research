@@ -6,8 +6,8 @@ from pathlib import Path
 import PyPDF2
 from docx import Document
 from bs4 import BeautifulSoup
-from langchain.text_splitter import RecursiveCharacterTextSplitter
-from langchain.schema import Document as LangChainDocument
+from langchain_text_splitters import RecursiveCharacterTextSplitter
+from langchain_core.documents import Document as LangChainDocument
 
 from config import Config
 

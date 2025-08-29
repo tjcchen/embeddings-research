@@ -63,7 +63,7 @@ python3 -m streamlit run main.py
 
 运行 CLI 演示：
 ```bash
-python cli_demo.py
+python3 cli_demo.py
 ```
 
 ## 📁 项目结构

@@ -3,10 +3,10 @@ import pickle
 from typing import List, Dict, Any, Optional
 import faiss
 import numpy as np
-from langchain.embeddings import OpenAIEmbeddings
-from langchain.schema import Document
-from langchain.vectorstores import FAISS
-from langchain.vectorstores.base import VectorStore
+from langchain_openai import OpenAIEmbeddings
+from langchain_core.documents import Document
+from langchain_community.vectorstores import FAISS
+from langchain_core.vectorstores import VectorStore
 
 from config import Config
 
