@@ -33,7 +33,7 @@
 
 ```bash
 cd chat_with_docs
-pip install -r requirements.txt
+pip3 install -r requirements.txt
 ```
 
 ## ⚙️ 配置设置
@@ -55,6 +55,7 @@ OPENAI_API_KEY=your_openai_api_key_here
 启动 Streamlit 应用：
 ```bash
 streamlit run main.py
+python3 -m streamlit run main.py
 ```
 
 然后在浏览器中打开 `http://localhost:8501`

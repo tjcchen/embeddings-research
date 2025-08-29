@@ -12,10 +12,10 @@ fi
 
 # Check if requirements are installed
 echo "🔍 检查依赖包..."
-python -c "import streamlit, langchain, openai" 2>/dev/null
+python3 -c "import streamlit, langchain, openai" 2>/dev/null
 if [ $? -ne 0 ]; then
     echo "❌ 缺少依赖包，正在安装..."
-    pip install -r requirements.txt
+    pip3 install -r requirements.txt
 fi
 
 # Check for API key
