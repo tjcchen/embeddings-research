@@ -50,14 +50,10 @@ class ChatWithDocsApp:
                 accept_multiple_files=True
             )
             
-            # URL input section
-            st.subheader("添加网页")
-            url_input = st.text_input("输入网页URL")
-            
             # Process documents button
             if st.button("处理文档", type="primary"):
-                if uploaded_files or url_input:
-                    self.process_documents(uploaded_files, url_input)
+                if uploaded_files:
+                    self.process_documents(uploaded_files)
             
             # Clear vector store button
             if st.button("清空数据库", type="secondary"):
@@ -103,8 +99,8 @@ class ChatWithDocsApp:
             else:
                 st.info("暂无文档数据")
     
-    def process_documents(self, uploaded_files: List, url_input: str):
-        """Process uploaded files and URLs"""
+    def process_documents(self, uploaded_files: List):
+        """Process uploaded files"""
         with st.spinner("正在处理文档..."):
             try:
                 all_documents = []
@@ -125,12 +121,6 @@ class ChatWithDocsApp:
                         documents = self.document_processor.process_file(file_path)
                         all_documents.extend(documents)
                         processed_docs.append(uploaded_file.name)
-                
-                # Process URL
-                if url_input.strip():
-                    documents = self.document_processor.process_url(url_input.strip())
-                    all_documents.extend(documents)
-                    processed_docs.append(url_input.strip())
                 
                 # Add to vector store
                 if all_documents:
